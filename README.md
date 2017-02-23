@@ -44,3 +44,19 @@ Deleting is done brute force by killing the process containing the resource.
 The data we put in processes are integers generated using the
 [eqc_gen:int/0](http://quviq.com/documentation/eqc/eqc_gen.html#int-0)
 generator.
+
+## Dets example
+
+There have been some hard to find race conditions in the Erlang dets
+module long ago. After six weeks of traditional testing, these were
+not found, but with a 200 lines QuickCheck model, they showed up
+immediately. For those with access to scientific literature, the
+[full paper](http://doi.acm.org/10.1145/2034654.2034667) explains
+the story in more detail. Alternatively you watch
+[a video](https://www.youtube.com/watch?v=F6LzB6SdFKA) half way
+in (30 min).
+
+The model dets_eqc.erl is provided to show how these races could be
+found. It has much similarity with the CRUD models, since dets is just
+a data storage.
+
