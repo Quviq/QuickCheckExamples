@@ -8,21 +8,16 @@
 %%% Unless required by applicable law or agreed to in writing, software
 %%% distributed under the License is distributed on an "AS IS" BASIS,
 %%% WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-%%
+%%%
 %%% @doc This is a model to test the Erlang dets module. It shows how QuickCheck can
 %%%      be used to find race conditions. The original model was used to find a few
 %%%      notoriously hard to discover bugs in dets.
 %%%
-%%%      The data we put in files is generated using the eqc_gen:utf8/0 generator.
-%%%      This generates a random sequence of utf8 characters, but as can be seen 
-%%%      from the features we record while testing, it will hardly ever create 
-%%%      more than 100 characters. Features are useful to detect whether certain 
-%%%      things have been tested or when assuring that a certain requirement has 
-%%%      been covered.
 %%%
 %%% @end
 %%% Modified : 22 Feb 2017 by Thomas Arts
 %%%            (adopted to QuickCheck version 1.39.2)
+%%%
 -module(dets_eqc).
 
 -include_lib("eqc/include/eqc.hrl").
