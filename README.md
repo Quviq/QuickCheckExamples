@@ -77,10 +77,11 @@ second() ->
   catch case second() of
 	  #{[] := #{0 := Dont}} when Dont#{0 => second} -> mad
 	end.
-    ```
+```
 
 Another example [ERL-150](https://bugs.erlang.org/browse/ERL-150)
 reported for OTP-19.0-rc1 shows an internal beam type error.
+
 ```erlang
 -module(bug).
 
