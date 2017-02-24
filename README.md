@@ -60,3 +60,45 @@ The model dets_eqc.erl is provided to show how these races could be
 found. It has much similarity with the CRUD models, since dets is just
 a data storage.
 
+## Generating Erlang programs
+
+Quviq's QuickCheck can be used to generate programs and contains
+the Erlang program generator. This program generator has detected a
+number of faults in previous versions of the Erlang compiler. The good
+thing when finding such errors is that QuickCheck shrinks the program
+to something easy to debug.
+
+For example in [ERL-76](https://bugs.erlang.org/browse/ERL-76) we
+reported a compiler error with the following shrunk program:
+```erlang
+-module(myprog).
+
+second() ->
+  catch case second() of
+	  #{[] := #{0 := Dont}} when Dont#{0 => second} -> mad
+	end.
+    ```
+
+Another example [ERL-150](https://bugs.erlang.org/browse/ERL-150)
+reported for OTP-19.0-rc1 shows an internal beam type error.
+```erlang
+-module(bug).
+
+-compile(export_all).
+
+f(pat) ->
+  X = case err of
+         ok  -> ok;
+         err -> external:call(), 0
+      end,
+  case X of
+    ok  -> ok;
+    err -> err;
+    0   -> bad
+  end.
+```
+
+We sincerely hope that Erlang developers are running this property every night
+on the compiler to find these before Elixir folks or other folks that
+depend on the corners of the compiler bump into such issues.
+
