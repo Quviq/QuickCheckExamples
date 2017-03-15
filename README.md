@@ -7,7 +7,7 @@ You need to have a [Quviq QuickCheck](http://quviq.com/) licence to use these Qu
 models. Licences can be ordered from Quviq or are part of your toolbox
 when you have Quviq take care of (part of) your testing.
 
-Badge .svg: [<img src="http://quickcheck-ci.com/p/Quviq/QuickCheckExamples.svg" alt="Build Status" width="160px">](http://quickcheck-ci.com/p/Quviq/QuickCheckExamples)
+[<img src="http://quickcheck-ci.com/p/Quviq/QuickCheckExamples.svg" alt="Build Status" width="160px">](http://quickcheck-ci.com/p/Quviq/QuickCheckExamples)
 
 ## CRUD examples
 
