@@ -7,13 +7,15 @@ You need to have a [Quviq QuickCheck](http://quviq.com/) licence to use these Qu
 models. Licences can be ordered from Quviq or are part of your toolbox
 when you have Quviq take care of (part of) your testing.
 
+Badge .svg: [<img src="http://quickcheck-ci.com/p/Quviq/QuickCheckExamples.svg" alt="Build Status" width="160px">](http://quickcheck-ci.com/p/Quviq/QuickCheckExamples)
+
 ## CRUD examples
 
 Testing that you can create, read, update and delete a resource in a
 system is a rather common operation. The following examples
 demonstrate the basics of how to use a stateful model that keeps track
 of the operations performed to the resource.
- 
+
 ### CRUD: crud_eqc.erl
 
  As a simple example, we use files as our resource. We fix two file
@@ -22,10 +24,10 @@ of the operations performed to the resource.
 
 The data we put in files is generated using the
 [eqc_gen:utf8/0](http://quviq.com/documentation/eqc/eqc_gen.html#utf8-0) generator.
-This generates a random sequence of utf8 characters, but as can be seen 
-from the features we record while testing, it will hardly ever create 
-more than 100 characters. Features are useful to detect whether certain 
- things have been tested or when assuring that a certain requirement has 
+This generates a random sequence of utf8 characters, but as can be seen
+from the features we record while testing, it will hardly ever create
+more than 100 characters. Features are useful to detect whether certain
+ things have been tested or when assuring that a certain requirement has
  been covered.
 
 ### CRUD where create returns a unique id: crud_unique_id_eqc.erl
@@ -37,7 +39,7 @@ need to refer to the created resource symbolically "the resource
 created in that call".
 
 As a simple example, we use processes as our resources. Each process
-contains a value set by its creation. This value can be changed by an 
+contains a value set by its creation. This value can be changed by an
 update function and read by sending a message to obtain the value.
 Deleting is done brute force by killing the process containing the resource.
 
